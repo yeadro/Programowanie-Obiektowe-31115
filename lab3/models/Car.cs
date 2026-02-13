@@ -12,7 +12,7 @@ public class Car : Vehicle
         {
             if (value <= 2000)
             {
-                throw new ArgumentOutOfRangeException("Year", "Year cannot be less than 2000");
+                throw new ArgumentOutOfRangeException("Year", "Rok nie może być mniejszy niż 2000");
             }
             year = value;
         }
@@ -24,11 +24,20 @@ public class Car : Vehicle
         Model = model;
         Year = year;
     }
+    
+    public void UpdateData(string newModel, string newEngine, int newYear)
+    {
+        if (!string.IsNullOrWhiteSpace(newModel))
+            Model = newModel;
+            
+        if (!string.IsNullOrWhiteSpace(newEngine))
+            Engine = newEngine;
+            
+        Year = newYear;
+    }
 
     public void ShowMe()
     {
-        Console.WriteLine($"Model: {this.Model}, Year: {this.Year}, Engine: {this.Engine}");
+        Console.WriteLine($"Model: {this.Model}, Rok: {this.Year}, Silnik: {this.Engine}");
     }
-    
-    
 }
